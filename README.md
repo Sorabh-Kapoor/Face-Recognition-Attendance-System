@@ -1,7 +1,7 @@
 # # Facial Recognition System
 
 ## 📌 Overview
-The **Facial Recognition System** is an AI-powered application designed to detect and recognize faces with high accuracy. This system can be integrated into various applications, including security systems, attendance management, and identity verification.
+The **Facial Recognition System** is an AI-powered application USING FLASK designed to detect and recognize faces with high accuracy. This system can be integrated into various applications, including security systems, attendance management, and identity verification.
 
 ## ✨ Features
 - 🎯 **Face Detection**: Identifies faces in images and video streams.
