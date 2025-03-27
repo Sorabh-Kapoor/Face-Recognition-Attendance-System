@@ -10,13 +10,14 @@
 
 
     body {
-        background-image: url('https://img.pogo.org/image/content/2018/facial-recognition-gif-v5-o_1150.gif?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=800&q=80&ratio=1.5&w=1200&s=4e2f6eeb1cc9940aa21f63bb62f2d161');
-        background-size: cover;
-        font-family: sans-serif;
-        margin-top: 40px;
-        padding: 0;
-        margin: 0;
-    }
+    background-image: url("https://images.unsplash.com/photo-1568781269551-3e3baf5ec909?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 40px;
+    padding: 0;
+    margin: 0;
+}
+
 
     table {
         border-radius: 20px;
@@ -52,10 +53,8 @@
 
 <body>
     
-    <div class='mt-3 text-center' style="background-color: rgba(92, 38, 239, 0.9);">
-        <h1 style="color: white;padding: 11px;font-size: 44px; margin-top: 100px;">Face Recognition Based
-            Attendance System</h1>
-    </div>
+    <h1 class='mt-3 text-center' style="color: white;padding: 11px;font-size: 44px; margin-top: 100px;">Face Recognition Based
+        Attendance System</h1>
 
     {% if mess%}
     <p class="text-center" style="color: red;font-size: 20px;">{{ mess }}</p>
@@ -99,7 +98,7 @@
             style="border-radius: 20px;padding: 0px;background-color:rgb(0, 0, 0, 0.8);margin:0px 10px 10px 10px;height: 400px;">
             <form action='/add' method="POST" enctype="multipart/form-data">
                 <h2 style="border-radius: 20px 20px 0px 0px;background-color: rgb(216, 13, 77) ;color: white;padding: 10px;">Add
-                    New User <i class="material-icons">control_point_duplicate</i></h2>
+                    New User</h2>
                 <label style="font-size: 20px; color: white"><b>Enter New User Name*</b></label>
                 <br>
                 <input type="text" id="newusername" name='newusername'

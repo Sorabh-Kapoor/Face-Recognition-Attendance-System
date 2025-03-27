@@ -181,9 +181,9 @@ import joblib
 
 app = Flask(__name__)
 
-nimgs = 30
+nimgs = 100
 
-imgBackground = cv2.imread("background.png")
+imgBackground = cv2.imread("background.jpg")
 
 datetoday = date.today().strftime("%m_%d_%y")
 datetoday2 = date.today().strftime("%d-%B-%Y")
@@ -217,11 +217,11 @@ def identify_face(facearray):
     distances, indices = model.kneighbors(facearray)
     prediction = model.predict(facearray)[0]
 
-    # Set a threshold for minimum distance (adjust as needed)
-    confidence_threshold = 5000  # Tune this value based on your data
+    # Set a threshold for minimum distance
+    confidence_threshold = 3000
         
     if distances[0][0] > confidence_threshold:
-         return "Unknown_Person_0"
+         return "UnknownPerson_0"
          
     else:
         return prediction
@@ -250,7 +250,7 @@ def extract_attendance():
     return names, rolls, times, l
 
 def add_attendance(name):
-    if name == "Unknown_Person_0":
+    if name == "UnknownPerson_0":
         return  # Don't add unknown persons to attendance
     
     username = name.split('_')[0]
@@ -305,14 +305,14 @@ def start():
             # Add attendance only for known persons
             add_attendance(identified_person)
             
-            display_name = identified_person.split('_')[0] if identified_person != "Unknown_Person_0" else "Unknown Person"
+            display_name = identified_person.split('_')[0] if identified_person != "UnknownPerson_0" else "Unknown"
             
             cv2.rectangle(frame, (x,y), (x+w, y+h), (0,0,255), 1)
             cv2.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),2)
             cv2.rectangle(frame,(x,y-40),(x+w,y),(50,50,255),-1)
             cv2.putText(frame, display_name, (x,y-15), cv2.FONT_HERSHEY_COMPLEX, 1, (255,255,255), 1)
             
-        imgBackground[162:162 + 480, 55:55 + 640] = frame
+        imgBackground[162:162 + 480, 300:300 + 640] = frame
         cv2.imshow('Attendance', imgBackground)
         if cv2.waitKey(1) == 27:
             break
